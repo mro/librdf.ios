@@ -244,7 +244,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16B2AD3E19420F38000FBC34 /* Build configuration list for PBXNativeTarget "librdf.ios" */;
 			buildPhases = (
-				16B2AD1719420F38000FBC34 /* Sources */,
 				16B2AD4419421006000FBC34 /* ShellScript */,
 				16B2AD1819420F38000FBC34 /* Frameworks */,
 				16B2AD1919420F38000FBC34 /* CopyFiles */,
@@ -335,13 +334,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		16B2AD1719420F38000FBC34 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		16B2AD2719420F38000FBC34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
