@@ -2,3 +2,5 @@
 src/
 tarballs/
 build/
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/
+*.xcodeproj/xcuserdata/*.xcuserdatad/

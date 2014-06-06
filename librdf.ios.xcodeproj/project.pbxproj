@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2C19420F38000FBC34 /* XCTest.framework */; };
+		16B2AD2E19420F38000FBC34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD1E19420F38000FBC34 /* Foundation.framework */; };
+		16B2AD3019420F38000FBC34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2F19420F38000FBC34 /* UIKit.framework */; };
+		16B2AD3919420F38000FBC34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16B2AD3719420F38000FBC34 /* InfoPlist.strings */; };
+		16B2AD3B19420F38000FBC34 /* librdf_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */; };
+		16B2AD49194211AB000FBC34 /* libraptor2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD46194211AB000FBC34 /* libraptor2.a */; };
+		16B2AD4A194211AB000FBC34 /* libraptor2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD46194211AB000FBC34 /* libraptor2.a */; };
+		16B2AD4B194211AB000FBC34 /* librasqal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD47194211AB000FBC34 /* librasqal.a */; };
+		16B2AD4C194211AB000FBC34 /* librasqal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD47194211AB000FBC34 /* librasqal.a */; };
+		16B2AD4D194211AB000FBC34 /* librdf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD48194211AB000FBC34 /* librdf.a */; };
+		16B2AD4E194211AB000FBC34 /* librdf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD48194211AB000FBC34 /* librdf.a */; };
+		16B2AD6C19421D79000FBC34 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD6B19421D79000FBC34 /* libxml2.dylib */; };
+		16B2AD6E19421D80000FBC34 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD6D19421D80000FBC34 /* libsqlite3.dylib */; };
+		16B2AD6F19421DA0000FBC34 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD6B19421D79000FBC34 /* libxml2.dylib */; };
+		16B2AD7019421DB0000FBC34 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD6D19421D80000FBC34 /* libsqlite3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16B2AD3119420F38000FBC34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16B2AD1319420F38000FBC34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16B2AD1A19420F38000FBC34;
+			remoteInfo = librdf.ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		16B2AD1919420F38000FBC34 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibrdf.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B2AD1E19420F38000FBC34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		16B2AD2219420F38000FBC34 /* librdf.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "librdf.ios-Prefix.pch"; sourceTree = "<group>"; };
+		16B2AD2B19420F38000FBC34 /* librdf.iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = librdf.iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B2AD2C19420F38000FBC34 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		16B2AD2F19420F38000FBC34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		16B2AD3619420F38000FBC34 /* librdf.iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "librdf.iosTests-Info.plist"; sourceTree = "<group>"; };
+		16B2AD3819420F38000FBC34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = librdf_iosTests.m; sourceTree = "<group>"; };
+		16B2AD4519421101000FBC34 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		16B2AD46194211AB000FBC34 /* libraptor2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraptor2.a; path = build/libraptor2.a; sourceTree = "<group>"; };
+		16B2AD47194211AB000FBC34 /* librasqal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librasqal.a; path = build/librasqal.a; sourceTree = "<group>"; };
+		16B2AD48194211AB000FBC34 /* librdf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librdf.a; path = build/librdf.a; sourceTree = "<group>"; };
+		16B2AD50194211F7000FBC34 /* librdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = librdf.h; sourceTree = "<group>"; };
+		16B2AD52194211F7000FBC34 /* raptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = raptor.h; sourceTree = "<group>"; };
+		16B2AD53194211F7000FBC34 /* raptor2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = raptor2.h; sourceTree = "<group>"; };
+		16B2AD55194211F7000FBC34 /* rasqal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rasqal.h; sourceTree = "<group>"; };
+		16B2AD56194211F7000FBC34 /* rdf_concepts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_concepts.h; sourceTree = "<group>"; };
+		16B2AD57194211F7000FBC34 /* rdf_digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_digest.h; sourceTree = "<group>"; };
+		16B2AD58194211F7000FBC34 /* rdf_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_hash.h; sourceTree = "<group>"; };
+		16B2AD59194211F7000FBC34 /* rdf_init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_init.h; sourceTree = "<group>"; };
+		16B2AD5A194211F7000FBC34 /* rdf_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_iterator.h; sourceTree = "<group>"; };
+		16B2AD5B194211F7000FBC34 /* rdf_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_list.h; sourceTree = "<group>"; };
+		16B2AD5C194211F7000FBC34 /* rdf_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_log.h; sourceTree = "<group>"; };
+		16B2AD5D194211F7000FBC34 /* rdf_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_model.h; sourceTree = "<group>"; };
+		16B2AD5E194211F7000FBC34 /* rdf_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_node.h; sourceTree = "<group>"; };
+		16B2AD5F194211F7000FBC34 /* rdf_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_parser.h; sourceTree = "<group>"; };
+		16B2AD60194211F7000FBC34 /* rdf_query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_query.h; sourceTree = "<group>"; };
+		16B2AD61194211F7000FBC34 /* rdf_raptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_raptor.h; sourceTree = "<group>"; };
+		16B2AD62194211F7000FBC34 /* rdf_serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_serializer.h; sourceTree = "<group>"; };
+		16B2AD63194211F7000FBC34 /* rdf_statement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_statement.h; sourceTree = "<group>"; };
+		16B2AD64194211F7000FBC34 /* rdf_storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_storage.h; sourceTree = "<group>"; };
+		16B2AD65194211F7000FBC34 /* rdf_storage_module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_storage_module.h; sourceTree = "<group>"; };
+		16B2AD66194211F7000FBC34 /* rdf_stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_stream.h; sourceTree = "<group>"; };
+		16B2AD67194211F7000FBC34 /* rdf_uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_uri.h; sourceTree = "<group>"; };
+		16B2AD68194211F7000FBC34 /* rdf_utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rdf_utf8.h; sourceTree = "<group>"; };
+		16B2AD69194211F7000FBC34 /* redland.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = redland.h; sourceTree = "<group>"; };
+		16B2AD6B19421D79000FBC34 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		16B2AD6D19421D80000FBC34 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16B2AD1819420F38000FBC34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B2AD6E19421D80000FBC34 /* libsqlite3.dylib in Frameworks */,
+				16B2AD6C19421D79000FBC34 /* libxml2.dylib in Frameworks */,
+				16B2AD49194211AB000FBC34 /* libraptor2.a in Frameworks */,
+				16B2AD4B194211AB000FBC34 /* librasqal.a in Frameworks */,
+				16B2AD4D194211AB000FBC34 /* librdf.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16B2AD2819420F38000FBC34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B2AD7019421DB0000FBC34 /* libsqlite3.dylib in Frameworks */,
+				16B2AD6F19421DA0000FBC34 /* libxml2.dylib in Frameworks */,
+				16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */,
+				16B2AD4C194211AB000FBC34 /* librasqal.a in Frameworks */,
+				16B2AD4E194211AB000FBC34 /* librdf.a in Frameworks */,
+				16B2AD4A194211AB000FBC34 /* libraptor2.a in Frameworks */,
+				16B2AD3019420F38000FBC34 /* UIKit.framework in Frameworks */,
+				16B2AD2E19420F38000FBC34 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16B2AD1219420F38000FBC34 = {
+			isa = PBXGroup;
+			children = (
+				16B2AD4519421101000FBC34 /* LICENSE.txt */,
+				16B2AD4F194211F7000FBC34 /* include */,
+				16B2AD2019420F38000FBC34 /* librdf.ios */,
+				16B2AD3419420F38000FBC34 /* librdf.iosTests */,
+				16B2AD1D19420F38000FBC34 /* Frameworks */,
+				16B2AD1C19420F38000FBC34 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16B2AD1C19420F38000FBC34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */,
+				16B2AD2B19420F38000FBC34 /* librdf.iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16B2AD1D19420F38000FBC34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD6D19421D80000FBC34 /* libsqlite3.dylib */,
+				16B2AD6B19421D79000FBC34 /* libxml2.dylib */,
+				16B2AD46194211AB000FBC34 /* libraptor2.a */,
+				16B2AD47194211AB000FBC34 /* librasqal.a */,
+				16B2AD48194211AB000FBC34 /* librdf.a */,
+				16B2AD1E19420F38000FBC34 /* Foundation.framework */,
+				16B2AD2C19420F38000FBC34 /* XCTest.framework */,
+				16B2AD2F19420F38000FBC34 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16B2AD2019420F38000FBC34 /* librdf.ios */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD2119420F38000FBC34 /* Supporting Files */,
+			);
+			path = librdf.ios;
+			sourceTree = "<group>";
+		};
+		16B2AD2119420F38000FBC34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD2219420F38000FBC34 /* librdf.ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16B2AD3419420F38000FBC34 /* librdf.iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */,
+				16B2AD3519420F38000FBC34 /* Supporting Files */,
+			);
+			path = librdf.iosTests;
+			sourceTree = "<group>";
+		};
+		16B2AD3519420F38000FBC34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD3619420F38000FBC34 /* librdf.iosTests-Info.plist */,
+				16B2AD3719420F38000FBC34 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16B2AD4F194211F7000FBC34 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD50194211F7000FBC34 /* librdf.h */,
+				16B2AD51194211F7000FBC34 /* raptor2 */,
+				16B2AD54194211F7000FBC34 /* rasqal */,
+				16B2AD56194211F7000FBC34 /* rdf_concepts.h */,
+				16B2AD57194211F7000FBC34 /* rdf_digest.h */,
+				16B2AD58194211F7000FBC34 /* rdf_hash.h */,
+				16B2AD59194211F7000FBC34 /* rdf_init.h */,
+				16B2AD5A194211F7000FBC34 /* rdf_iterator.h */,
+				16B2AD5B194211F7000FBC34 /* rdf_list.h */,
+				16B2AD5C194211F7000FBC34 /* rdf_log.h */,
+				16B2AD5D194211F7000FBC34 /* rdf_model.h */,
+				16B2AD5E194211F7000FBC34 /* rdf_node.h */,
+				16B2AD5F194211F7000FBC34 /* rdf_parser.h */,
+				16B2AD60194211F7000FBC34 /* rdf_query.h */,
+				16B2AD61194211F7000FBC34 /* rdf_raptor.h */,
+				16B2AD62194211F7000FBC34 /* rdf_serializer.h */,
+				16B2AD63194211F7000FBC34 /* rdf_statement.h */,
+				16B2AD64194211F7000FBC34 /* rdf_storage.h */,
+				16B2AD65194211F7000FBC34 /* rdf_storage_module.h */,
+				16B2AD66194211F7000FBC34 /* rdf_stream.h */,
+				16B2AD67194211F7000FBC34 /* rdf_uri.h */,
+				16B2AD68194211F7000FBC34 /* rdf_utf8.h */,
+				16B2AD69194211F7000FBC34 /* redland.h */,
+			);
+			name = include;
+			path = "build/iOS-arm64/include";
+			sourceTree = "<group>";
+		};
+		16B2AD51194211F7000FBC34 /* raptor2 */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD52194211F7000FBC34 /* raptor.h */,
+				16B2AD53194211F7000FBC34 /* raptor2.h */,
+			);
+			path = raptor2;
+			sourceTree = "<group>";
+		};
+		16B2AD54194211F7000FBC34 /* rasqal */ = {
+			isa = PBXGroup;
+			children = (
+				16B2AD55194211F7000FBC34 /* rasqal.h */,
+			);
+			path = rasqal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16B2AD1A19420F38000FBC34 /* librdf.ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16B2AD3E19420F38000FBC34 /* Build configuration list for PBXNativeTarget "librdf.ios" */;
+			buildPhases = (
+				16B2AD1719420F38000FBC34 /* Sources */,
+				16B2AD4419421006000FBC34 /* ShellScript */,
+				16B2AD1819420F38000FBC34 /* Frameworks */,
+				16B2AD1919420F38000FBC34 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = librdf.ios;
+			productName = librdf.ios;
+			productReference = 16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		16B2AD2A19420F38000FBC34 /* librdf.iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16B2AD4119420F38000FBC34 /* Build configuration list for PBXNativeTarget "librdf.iosTests" */;
+			buildPhases = (
+				16B2AD2719420F38000FBC34 /* Sources */,
+				16B2AD2819420F38000FBC34 /* Frameworks */,
+				16B2AD2919420F38000FBC34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16B2AD3219420F38000FBC34 /* PBXTargetDependency */,
+			);
+			name = librdf.iosTests;
+			productName = librdf.iosTests;
+			productReference = 16B2AD2B19420F38000FBC34 /* librdf.iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16B2AD1319420F38000FBC34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Marcus Rohrmoser mobile Software";
+			};
+			buildConfigurationList = 16B2AD1619420F38000FBC34 /* Build configuration list for PBXProject "librdf.ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 16B2AD1219420F38000FBC34;
+			productRefGroup = 16B2AD1C19420F38000FBC34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16B2AD1A19420F38000FBC34 /* librdf.ios */,
+				16B2AD2A19420F38000FBC34 /* librdf.iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16B2AD2919420F38000FBC34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B2AD3919420F38000FBC34 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16B2AD4419421006000FBC34 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+				"$(PROJECT_DIR)/build/libraptor2.a",
+				"$(PROJECT_DIR)/build/librasqal.a",
+				"$(PROJECT_DIR)/build/librdf.a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR\"\nexport PATH=/bin:/usr/bin:/usr/local/bin\n./build.sh all\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16B2AD1719420F38000FBC34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16B2AD2719420F38000FBC34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B2AD3B19420F38000FBC34 /* librdf_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16B2AD3219420F38000FBC34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16B2AD1A19420F38000FBC34 /* librdf.ios */;
+			targetProxy = 16B2AD3119420F38000FBC34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		16B2AD3719420F38000FBC34 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16B2AD3819420F38000FBC34 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16B2AD3C19420F38000FBC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"build/iOS-arm64/include/",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		16B2AD3D19420F38000FBC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					build/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16B2AD3F19420F38000FBC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/librdf_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "librdf.ios/librdf.ios-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16B2AD4019420F38000FBC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/librdf_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "librdf.ios/librdf.ios-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		16B2AD4219420F38000FBC34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "librdf.ios/librdf.ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "librdf.iosTests/librdf.iosTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		16B2AD4319420F38000FBC34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "librdf.ios/librdf.ios-Prefix.pch";
+				INFOPLIST_FILE = "librdf.iosTests/librdf.iosTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16B2AD1619420F38000FBC34 /* Build configuration list for PBXProject "librdf.ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B2AD3C19420F38000FBC34 /* Debug */,
+				16B2AD3D19420F38000FBC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16B2AD3E19420F38000FBC34 /* Build configuration list for PBXNativeTarget "librdf.ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B2AD3F19420F38000FBC34 /* Debug */,
+				16B2AD4019420F38000FBC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16B2AD4119420F38000FBC34 /* Build configuration list for PBXNativeTarget "librdf.iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B2AD4219420F38000FBC34 /* Debug */,
+				16B2AD4319420F38000FBC34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16B2AD1319420F38000FBC34 /* Project object */;
+}

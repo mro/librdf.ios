@@ -108,7 +108,7 @@ if [ "$1" = "all" ] ; then
   do
     if [ ! -f "$build_base_dir/$lib" ] ; then
       set -x
-      lipo -create -output "$build_base_dir/$lib" $(ls "$build_base_dir/"*"/lib/$lib")
+      lipo -create -output "$build_base_dir/$lib" $(ls "$build_base_dir/"*"/lib/$lib") || { exit $?; }
       set +x
     fi
   done
@@ -233,7 +233,7 @@ if [ ! -f "config.log" ] ; then # configure
     export CC=/usr/bin/gcc    # used to be "${DEVROOT}/usr/bin/gcc", but Xcode 5 no longer bundles gcc for iPhoneOS.platform
     unset CPP         # configure uses "$CC -E" if CPP is not set, which is needed for many configure scripts. So, DON'T set CPP
 
-		common_opts="--build=x86_64-apple-darwin13.2.0 --host=x86_64-apple-darwin --enable-static --disable-shared ac_cv_file__dev_zero=no ac_cv_func_setpgrp_void=yes"
+		common_opts="--build=$HOST_ARCH-apple-darwin$HOST_DARWIN_VER --host=$HOST_ARCH-apple-darwin --enable-static --disable-shared ac_cv_file__dev_zero=no ac_cv_func_setpgrp_void=yes"
     case "$lib" in
     $RAPTOR)
       archive=libraptor2.a
