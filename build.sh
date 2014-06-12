@@ -102,6 +102,8 @@ done
 ###########################################################
 if [ "$1" = "all" ] ; then
 
+  echo "pwd ($@): #{pwd}"
+  echo "environment:"
   set # debugging: dump environment
 
   params=""
@@ -113,6 +115,7 @@ if [ "$1" = "all" ] ; then
     done
   done
 
+
   ###########################################################
   # call myself with 2 parameters each (platform,lib) in up to $max_cores parallel processes
   echo "$params" | xargs -P $max_cores -n 2 sh "$(basename "$0")"
@@ -123,7 +126,9 @@ if [ "$1" = "all" ] ; then
   for lib in libraptor2.a librasqal.a librdf.a
   do
     if [ ! -f "$build_base_dir/$lib" ] ; then
+      echo "pwd ($@): #{pwd}"
       set -x
+      ls "$build_base_dir/"*"/lib/$lib"
       lipo -create -output "$build_base_dir/$lib" $(ls "$build_base_dir/"*"/lib/$lib") || { exit $?; }
       set +x
     fi
