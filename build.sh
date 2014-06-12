@@ -77,12 +77,12 @@ which make        >/dev/null 2>&1 || { echo "make is not installed - I guess Xco
 which lipo        >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
 
 which pkg-config  >/dev/null 2>&1 || { echo "pkg-config is not installed - consider $ brew install pkg-config" && exit 1; }
-# cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
-# This is not how it should be for cross compilation - version number mismatch hell ahead!
-# But in order to get things started we'll stick to it for now.
-pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
-pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
-pkg-config --exists redland       || { echo "redland is not installed (needed by ./configure) -  consider $ brew install redland" && exit 1; }
+## cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
+## This is not how it should be for cross compilation - version number mismatch hell ahead!
+## But in order to get things started we'll stick to it for now.
+# pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
+# pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
+# pkg-config --exists redland       || { echo "redland is not installed (needed by ./configure) -  consider $ brew install redland" && exit 1; }
 
 
 ###########################################################
@@ -102,19 +102,16 @@ done
 #### build all in parallel (call myself via xargs)
 ###########################################################
 if [ "$1" = "all" ] ; then
-  params=""
   for lib in $RAPTOR $RASQAL $REDLAND
   do
-    for platform in Mac-i386 Mac-x86_64 iOS-armv7 iOS-armv7s iOS-arm64
-    do
+    echo "$$ building $lib"
+    params=""
+    for platform in Mac-i386 Mac-x86_64 iOS-armv7 iOS-armv7s iOS-arm64 ; do
       params="$params $platform $lib"
     done
+    # call myself with 2 parameters each (platform,lib) in up to $max_cores parallel processes
+    echo "$params" | xargs -P $max_cores -n 2 sh "$(basename "$0")"
   done
-
-
-  ###########################################################
-  # call myself with 2 parameters each (platform,lib) in up to $max_cores parallel processes
-  echo "$params" | xargs -P $max_cores -n 2 sh "$(basename "$0")"
 
   #### bundle libraries
   for lib in libraptor2.a librasqal.a librdf.a
@@ -168,7 +165,10 @@ if [ ! -f "config.log" ] ; then # configure
     export MACOSX_DEPLOYMENT_TARGET="10.6"
 
     export PREFIX=/usr/local
-    export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig"
+    PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig"
+    # add siblings' pc
+    PKG_CONFIG_PATH="${build_dir}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+    export PKG_CONFIG_PATH
     export CFLAGS="-std=c99 $ARCH -pipe -I$PREFIX/include"
     export CPPFLAGS="$CFLAGS"
     export CXXFLAGS="$CFLAGS"
@@ -184,10 +184,13 @@ if [ ! -f "config.log" ] ; then # configure
       ./configure --prefix="$build_dir" --with-www=none 1> configure.stdout 2> configure.stderr
       ;;
     $RASQAL)
+      pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
       archive=librasqal.a
       ./configure --prefix="$build_dir" --with-decimal=none 1> configure.stdout 2> configure.stderr
       ;;
     $REDLAND)
+      pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
+      pkg-config --exists rasqal        || { echo "$$ rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
       archive=librdf.a
       ./configure --prefix="$build_dir" --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
       ;;
@@ -231,7 +234,10 @@ if [ ! -f "config.log" ] ; then # configure
 
     export PREFIX="/usr/local/ios-$SDKVER"
 
-    export PKG_CONFIG_PATH="${SDKROOT}/usr/lib/pkgconfig:${DEVROOT}/usr/lib/pkgconfig:${PREFIX}/lib/pkgconfig"
+    PKG_CONFIG_PATH="${SDKROOT}/usr/lib/pkgconfig:${DEVROOT}/usr/lib/pkgconfig:${PREFIX}/lib/pkgconfig"
+    # add siblings' pc
+    PKG_CONFIG_PATH="${build_dir}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+    export PKG_CONFIG_PATH
 
     export CFLAGS="-std=c99 $ARCH -pipe --sysroot=$SDKROOT -isysroot $SDKROOT -I${SDKROOT}/usr/include -I${DEVROOT}/usr/include -I${PREFIX}/include"
     export CPPFLAGS="$CFLAGS"
@@ -253,10 +259,13 @@ if [ ! -f "config.log" ] ; then # configure
       ./configure --prefix="$build_dir" $common_opts --with-www=none 1> configure.stdout 2> configure.stderr
       ;;
     $RASQAL)
+      pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
       archive=librasqal.a
       ./configure --prefix="$build_dir" $common_opts --with-decimal=none 1> configure.stdout 2> configure.stderr
       ;;
     $REDLAND)
+      pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
+      pkg-config --exists rasqal        || { echo "$$ rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
       archive=librdf.a
       ./configure --prefix="$build_dir" $common_opts --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
       ;;
