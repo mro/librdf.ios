@@ -1,5 +1,8 @@
 # librdf.ios
 
+`master`: [![Build Status](https://travis-ci.org/mro/librdf.ios.svg?branch=master)](https://travis-ci.org/mro/librdf.ios)
+`develop`: [![Build Status](https://travis-ci.org/mro/librdf.ios.svg?branch=develop)](https://travis-ci.org/mro/librdf.ios)
+
 [![Version](https://img.shields.io/cocoapods/v/librdf.ios.svg?style=flat)](http://cocoadocs.org/docsets/librdf.ios)
 [![License](https://img.shields.io/cocoapods/l/librdf.ios.svg?style=flat)](http://cocoadocs.org/docsets/librdf.ios)
 [![Platform](https://img.shields.io/cocoapods/p/librdf.ios.svg?style=flat)](http://cocoadocs.org/docsets/librdf.ios)
