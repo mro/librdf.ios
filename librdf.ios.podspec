@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "librdf.ios"
-  s.version          = File.read('VERSION')
+  s.version          = '1.0.17' # File.read('VERSION')
   s.summary          = "IOS linkable https://github.com/dajobe/librdf."
   s.homepage         = "http://purl.mro.name/ios/librdf"
   s.license          = 'Human Rights License'
