@@ -101,6 +101,9 @@ done
 #### build all in parallel (call myself via xargs)
 ###########################################################
 if [ "$1" = "all" ] ; then
+
+  set # debugging: dump environment
+
   params=""
   for lib in $RAPTOR $RASQAL $REDLAND
   do
@@ -295,6 +298,7 @@ fi # configure
 
 if [ ! -f "$cwd/$build_base_dir/$platform/lib/$archive" ] ; then
   echo "$$ $(pwd)/make install ..."
+  grep prefix= config.log
   make install 1> make.stdout 2> make.stderr
 fi
 
