@@ -21,6 +21,11 @@
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+#
+# Inspired by the process & settings applied by
+# https://github.com/p2/Redland-ObjC/blob/bf123466ae308018b189c05ea39b6b877a083a54/Redland-source/cross-compile.py
+#
+
 RAPTOR=raptor2-2.0.14
 RASQAL=rasqal-0.9.32
 REDLAND=redland-1.0.17
@@ -65,11 +70,19 @@ fi
 ###########################################################
 #### check preliminaries
 ###########################################################
-which curl >/dev/null 2>&1 || { echo "curl is not installed." && exit 1; }
-which xargs >/dev/null 2>&1 || { echo "xargs is not installed." && exit 1; }
-which tar >/dev/null 2>&1 || { echo "tar is not installed." && exit 1; }
-which make >/dev/null 2>&1 || { echo "make is not installed - I guess Xcode commandline tools are missing." && exit 1; }
-which lipo >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
+which curl        >/dev/null 2>&1 || { echo "curl is not installed." && exit 1; }
+which xargs       >/dev/null 2>&1 || { echo "xargs is not installed." && exit 1; }
+which tar         >/dev/null 2>&1 || { echo "tar is not installed." && exit 1; }
+which make        >/dev/null 2>&1 || { echo "make is not installed - I guess Xcode commandline tools are missing." && exit 1; }
+which lipo        >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
+
+which pkg-config  >/dev/null 2>&1 || { echo "pkg-config is not installed - consider $ brew install pkg-config" && exit 1; }
+## cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
+## This is not how it should be for cross compilation - version number mismatch hell ahead!
+## But in order to get things started we'll stick to it for now.
+# pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
+# pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
+
 
 ###########################################################
 #### download
@@ -230,10 +243,10 @@ if [ ! -f "config.log" ] ; then # configure
     export SQLITE_LIBS="-L${SDKROOT}/usr/lib -lsqlite3"
 
     # set paths
-    export CC=/usr/bin/gcc    # used to be "${DEVROOT}/usr/bin/gcc", but Xcode 5 no longer bundles gcc for iPhoneOS.platform
+    export CC=/usr/bin/gcc
     unset CPP         # configure uses "$CC -E" if CPP is not set, which is needed for many configure scripts. So, DON'T set CPP
 
-		common_opts="--build=$HOST_ARCH-apple-darwin$HOST_DARWIN_VER --host=$HOST_ARCH-apple-darwin --enable-static --disable-shared ac_cv_file__dev_zero=no ac_cv_func_setpgrp_void=yes"
+    common_opts="--build=$HOST_ARCH-apple-darwin$HOST_DARWIN_VER --host=$HOST_ARCH-apple-darwin --enable-static --disable-shared ac_cv_file__dev_zero=no ac_cv_func_setpgrp_void=yes"
     case "$lib" in
     $RAPTOR)
       archive=libraptor2.a
