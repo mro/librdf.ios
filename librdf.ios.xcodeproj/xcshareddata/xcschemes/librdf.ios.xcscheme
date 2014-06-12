@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16B2AD1A19420F38000FBC34"
-               BuildableName = "liblibrdf.ios.a"
+               BuildableName = "librdf.ios.a"
                BlueprintName = "librdf.ios"
                ReferencedContainer = "container:librdf.ios.xcodeproj">
             </BuildableReference>

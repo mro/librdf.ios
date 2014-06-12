@@ -10,7 +10,6 @@
 		16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2C19420F38000FBC34 /* XCTest.framework */; };
 		16B2AD2E19420F38000FBC34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD1E19420F38000FBC34 /* Foundation.framework */; };
 		16B2AD3019420F38000FBC34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2F19420F38000FBC34 /* UIKit.framework */; };
-		16B2AD3919420F38000FBC34 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16B2AD3719420F38000FBC34 /* InfoPlist.strings */; };
 		16B2AD3B19420F38000FBC34 /* librdf_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */; };
 		16B2AD49194211AB000FBC34 /* libraptor2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD46194211AB000FBC34 /* libraptor2.a */; };
 		16B2AD4A194211AB000FBC34 /* libraptor2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD46194211AB000FBC34 /* libraptor2.a */; };
@@ -48,14 +47,13 @@
 
 /* Begin PBXFileReference section */
 		1675FF741949D2D800175808 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibrdf.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B2AD1B19420F38000FBC34 /* librdf.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librdf.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B2AD1E19420F38000FBC34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16B2AD2219420F38000FBC34 /* librdf.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "librdf.ios-Prefix.pch"; sourceTree = "<group>"; };
 		16B2AD2B19420F38000FBC34 /* librdf.iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = librdf.iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B2AD2C19420F38000FBC34 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		16B2AD2F19420F38000FBC34 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		16B2AD3619420F38000FBC34 /* librdf.iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "librdf.iosTests-Info.plist"; sourceTree = "<group>"; };
-		16B2AD3819420F38000FBC34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = librdf_iosTests.m; sourceTree = "<group>"; };
 		16B2AD46194211AB000FBC34 /* libraptor2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraptor2.a; path = build/libraptor2.a; sourceTree = "<group>"; };
 		16B2AD47194211AB000FBC34 /* librasqal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librasqal.a; path = build/librasqal.a; sourceTree = "<group>"; };
@@ -134,7 +132,7 @@
 		16B2AD1C19420F38000FBC34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */,
+				16B2AD1B19420F38000FBC34 /* librdf.ios.a */,
 				16B2AD2B19420F38000FBC34 /* librdf.iosTests.xctest */,
 			);
 			name = Products;
@@ -184,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				16B2AD3619420F38000FBC34 /* librdf.iosTests-Info.plist */,
-				16B2AD3719420F38000FBC34 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -254,7 +251,7 @@
 			);
 			name = librdf.ios;
 			productName = librdf.ios;
-			productReference = 16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */;
+			productReference = 16B2AD1B19420F38000FBC34 /* librdf.ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		16B2AD2A19420F38000FBC34 /* librdf.iosTests */ = {
@@ -307,7 +304,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B2AD3919420F38000FBC34 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +324,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR\"\nenv -i PATH=/bin:/usr/bin:/usr/local/bin ./build.sh all\n";
+			shellScript = "cd \"$PROJECT_DIR\"\n# run build.sh all in a clean environment:\nenv -i PATH=/bin:/usr/bin:/usr/local/bin ./build.sh all\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -350,17 +347,6 @@
 			targetProxy = 16B2AD3119420F38000FBC34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		16B2AD3719420F38000FBC34 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				16B2AD3819420F38000FBC34 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		16B2AD3C19420F38000FBC34 /* Debug */ = {
@@ -422,7 +408,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -453,7 +439,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = rdf.ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -468,7 +454,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = rdf.ios;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
