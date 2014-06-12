@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1658E26D194A060100F59FD7 /* libxslt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1658E26C194A060100F59FD7 /* libxslt.dylib */; };
+		1658E26F194A068B00F59FD7 /* libexslt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1658E26E194A068B00F59FD7 /* libexslt.dylib */; };
 		16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2C19420F38000FBC34 /* XCTest.framework */; };
 		16B2AD2E19420F38000FBC34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD1E19420F38000FBC34 /* Foundation.framework */; };
 		16B2AD3019420F38000FBC34 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2F19420F38000FBC34 /* UIKit.framework */; };
@@ -46,6 +48,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1658E26C194A060100F59FD7 /* libxslt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxslt.dylib; path = usr/lib/libxslt.dylib; sourceTree = SDKROOT; };
+		1658E26E194A068B00F59FD7 /* libexslt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexslt.dylib; path = usr/lib/libexslt.dylib; sourceTree = SDKROOT; };
 		1675FF741949D2D800175808 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		16B2AD1B19420F38000FBC34 /* librdf.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = librdf.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B2AD1E19420F38000FBC34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -103,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1658E26F194A068B00F59FD7 /* libexslt.dylib in Frameworks */,
+				1658E26D194A060100F59FD7 /* libxslt.dylib in Frameworks */,
 				16B2AD7019421DB0000FBC34 /* libsqlite3.dylib in Frameworks */,
 				16B2AD6F19421DA0000FBC34 /* libxml2.dylib in Frameworks */,
 				16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */,
@@ -141,6 +147,8 @@
 		16B2AD1D19420F38000FBC34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1658E26E194A068B00F59FD7 /* libexslt.dylib */,
+				1658E26C194A060100F59FD7 /* libxslt.dylib */,
 				16B2AD6D19421D80000FBC34 /* libsqlite3.dylib */,
 				16B2AD6B19421D79000FBC34 /* libxml2.dylib */,
 				16B2AD46194211AB000FBC34 /* libraptor2.a */,
