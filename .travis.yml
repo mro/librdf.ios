@@ -5,8 +5,8 @@ before_install:
   - brew update
   - brew upgrade xctool
   - brew install pkg-config
-install: 
-  - env -i PATH=/usr/local/bin:/usr/bin:/bin ./build.sh all
+#install: 
+#  - env -i PATH=/usr/local/bin:/usr/bin:/bin ./build.sh all
 # http://docs.travis-ci.com/user/languages/objective-c/
 language: objective-c
 xcode_sdk:

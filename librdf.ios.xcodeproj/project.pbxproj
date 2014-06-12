@@ -328,7 +328,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$PROJECT_DIR\"\nenv -i PATH=/usr/local/bin:/usr/bin:/bin ./build.sh all\n";
+			shellScript = "cd \"$PROJECT_DIR\"\nenv -i PATH=/bin:/usr/bin:/usr/local/bin ./build.sh all\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
