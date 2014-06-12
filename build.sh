@@ -77,11 +77,12 @@ which make        >/dev/null 2>&1 || { echo "make is not installed - I guess Xco
 which lipo        >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
 
 which pkg-config  >/dev/null 2>&1 || { echo "pkg-config is not installed - consider $ brew install pkg-config" && exit 1; }
-## cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
-## This is not how it should be for cross compilation - version number mismatch hell ahead!
-## But in order to get things started we'll stick to it for now.
-# pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
-# pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
+# cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
+# This is not how it should be for cross compilation - version number mismatch hell ahead!
+# But in order to get things started we'll stick to it for now.
+pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
+pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
+pkg-config --exists redland       || { echo "redland is not installed (needed by ./configure) -  consider $ brew install redland" && exit 1; }
 
 
 ###########################################################
@@ -101,11 +102,6 @@ done
 #### build all in parallel (call myself via xargs)
 ###########################################################
 if [ "$1" = "all" ] ; then
-
-  echo "pwd ($@): #{pwd}"
-  echo "environment:"
-  set # debugging: dump environment
-
   params=""
   for lib in $RAPTOR $RASQAL $REDLAND
   do
@@ -120,15 +116,11 @@ if [ "$1" = "all" ] ; then
   # call myself with 2 parameters each (platform,lib) in up to $max_cores parallel processes
   echo "$params" | xargs -P $max_cores -n 2 sh "$(basename "$0")"
 
-  # ls -l "$build_base_dir"/*/lib/*.a
-
   #### bundle libraries
   for lib in libraptor2.a librasqal.a librdf.a
   do
     if [ ! -f "$build_base_dir/$lib" ] ; then
-      echo "pwd ($@): #{pwd}"
       set -x
-      ls "$build_base_dir/"*"/lib/$lib"
       lipo -create -output "$build_base_dir/$lib" $(ls "$build_base_dir/"*"/lib/$lib") || { exit $?; }
       set +x
     fi
@@ -303,8 +295,12 @@ fi # configure
 
 if [ ! -f "$cwd/$build_base_dir/$platform/lib/$archive" ] ; then
   echo "$$ $(pwd)/make install ..."
-  grep prefix= config.log
+#  grep prefix= config.log
   make install 1> make.stdout 2> make.stderr
+  if [ $? -ne 0 ] ; then
+    echo "make install failed ($?):"
+    cat make.stderr
+  fi
 fi
 
 # echo $$ finish $@
