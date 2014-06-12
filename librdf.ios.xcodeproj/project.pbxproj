@@ -47,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1675FF741949D2D800175808 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		16B2AD1B19420F38000FBC34 /* liblibrdf.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibrdf.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B2AD1E19420F38000FBC34 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		16B2AD2219420F38000FBC34 /* librdf.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "librdf.ios-Prefix.pch"; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		16B2AD3619420F38000FBC34 /* librdf.iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "librdf.iosTests-Info.plist"; sourceTree = "<group>"; };
 		16B2AD3819420F38000FBC34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = librdf_iosTests.m; sourceTree = "<group>"; };
-		16B2AD4519421101000FBC34 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		16B2AD46194211AB000FBC34 /* libraptor2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libraptor2.a; path = build/libraptor2.a; sourceTree = "<group>"; };
 		16B2AD47194211AB000FBC34 /* librasqal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librasqal.a; path = build/librasqal.a; sourceTree = "<group>"; };
 		16B2AD48194211AB000FBC34 /* librdf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librdf.a; path = build/librdf.a; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		16B2AD1219420F38000FBC34 = {
 			isa = PBXGroup;
 			children = (
-				16B2AD4519421101000FBC34 /* LICENSE.txt */,
+				1675FF741949D2D800175808 /* LICENSE */,
 				16B2AD4F194211F7000FBC34 /* include */,
 				16B2AD2019420F38000FBC34 /* librdf.ios */,
 				16B2AD3419420F38000FBC34 /* librdf.iosTests */,
