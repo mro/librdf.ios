@@ -77,12 +77,6 @@ which make        >/dev/null 2>&1 || { echo "make is not installed - I guess Xco
 which lipo        >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
 
 which pkg-config  >/dev/null 2>&1 || { echo "pkg-config is not installed - consider $ brew install pkg-config" && exit 1; }
-## cross-compilation ./configure below uses pkg-config to check for installed raptor + rasqal.
-## This is not how it should be for cross compilation - version number mismatch hell ahead!
-## But in order to get things started we'll stick to it for now.
-# pkg-config --exists raptor2       || { echo "raptor2 is not installed (needed by ./configure) -  consider $ brew install raptor" && exit 1; }
-# pkg-config --exists rasqal        || { echo "rasqal is not installed (needed by ./configure) -  consider $ brew install rasqal" && exit 1; }
-# pkg-config --exists redland       || { echo "redland is not installed (needed by ./configure) -  consider $ brew install redland" && exit 1; }
 
 
 ###########################################################
