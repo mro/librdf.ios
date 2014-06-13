@@ -151,18 +151,18 @@ fi
 
 case "$lib" in
 $RAPTOR)
-	archive=libraptor2.a
-	;;
+  archive=libraptor2.a
+  ;;
 $RASQAL)
-	archive=librasqal.a
-	;;
+  archive=librasqal.a
+  ;;
 $REDLAND)
-	archive=librdf.a
-	;;
+  archive=librdf.a
+  ;;
 *)
-	echo "ERROR: unknown lib: $lib" 1>&2
-	exit 1
-	;;
+  echo "ERROR: unknown lib: $lib" 1>&2
+  exit 1
+  ;;
 esac
 
 export PREFIX="$(pwd)/$build_base_dir/$platform"
@@ -173,6 +173,7 @@ if [ ! -f "config.log" ] ; then # configure
   echo "$$ $(pwd)/configure ..."
   ARCH="-arch ${platform:4}"
 
+  # configure options: see http://librdf.org/INSTALL.html
   case "$platform" in
   Mac-*)
     export MACOSX_DEPLOYMENT_TARGET="10.6"
