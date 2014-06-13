@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.license           = 'Human Rights License'
   s.author            = { "Marcus Rohrmoser" => "mrohrmoser@acm.org" }
   s.source            = { :git => "https://github.com/mro/librdf.ios.git", :tag => s.version.to_s }
+  # todo: http://guides.cocoapods.org/syntax/podspec.html#docset_url
 
   s.platform          = :ios
   s.ios.deployment_target = '5.0'
