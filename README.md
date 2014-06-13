@@ -16,7 +16,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 librdf.ios is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-    pod 'librdf.ios', :git => 'https://github.com/mro/librdf.ios'
+    pod 'librdf.ios'
+
+The install will take a few minutes because it fetches 3 tarballs and builds 3 libraries.
 
 ## Author
 

@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
 
   # https://github.com/CocoaPods/CocoaPods/issues/2249#issuecomment-46001518
-  s.prepare_command 	= 'bash build.sh all'
-  s.xcconfig 					= { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/build"' }
-  s.vendored_libraries = 'build/lib*.a'                 # seems mandatory
-  s.preserve_paths = 'build/lib*.a'                     # maybe obsolete
-  s.source_files 			= 'build/iOS-armv7s/include/**/*.h'    # maybe obsolete
+  s.prepare_command   = 'bash build.sh all'
+  s.xcconfig          = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/build"' }
+  s.vendored_libraries = 'build/lib*.a'                     # seems mandatory
+  s.source_files      = 'build/iOS-armv7s/include/**/*.h'   # maybe obsolete
+  s.preserve_paths    = 'build/lib*.a'                      # maybe obsolete
 
   s.public_header_files = 'build/iOS-armv7s/include/**/*.h'
 
-  s.libraries 				= 'xml2', 'sqlite3'
+  s.libraries         = 'xml2', 'sqlite3'
   s.requires_arc      = false
 end
