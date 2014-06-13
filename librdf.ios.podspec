@@ -7,11 +7,21 @@
 Pod::Spec.new do |s|
   s.name              = "librdf.ios"
   s.version           = File.read('VERSION')
-  s.summary           = "iOS linkable https://github.com/dajobe/librdf."
-  s.homepage          = "http://purl.mro.name/ios/librdf"
+  s.summary           = "Redland RDF API and triple stores from https://github.com/dajobe/librdf for iOS."
+  s.description       = <<-DESC
+                        Brings the 3 libraries
+                        
+                        - raptor2: parsing and serializing RDF syntaxes,
+                        - rasqal: executing RDF queries and
+                        - redland:  RDF API and triple stores
+                        
+                        from http://librdf.org/
+                      DESC
+  s.homepage          = 'http://librdf.org/'
   s.license           = 'Human Rights License'
   s.author            = { "Marcus Rohrmoser" => "mrohrmoser@acm.org" }
   s.source            = { :git => "https://github.com/mro/librdf.ios.git", :tag => s.version.to_s }
+  s.documentation_url = 'http://librdf.org/docs/'
   # todo: http://guides.cocoapods.org/syntax/podspec.html#docset_url
 
   s.platform          = :ios
