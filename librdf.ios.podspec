@@ -7,6 +7,7 @@
 Pod::Spec.new do |s|
   s.name              = "librdf.ios"
   s.version           = File.read('VERSION')
+#  s.version           = '1.0.17'
   s.summary           = "iOS linkable https://github.com/dajobe/librdf."
   s.homepage          = "http://purl.mro.name/ios/librdf"
   s.license           = 'Human Rights License'
@@ -19,6 +20,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc      = false
 
+  s.vendored_libraries = 'build/lib*.a'         # seems mandatory
   s.public_header_files = 'build/iOS-armv7s/include/**/*.h'
 
   s.libraries = 'xml2', 'sqlite3'
