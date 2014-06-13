@@ -4,3 +4,4 @@ tarballs/
 build/
 *.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/
 *.xcodeproj/xcuserdata/*.xcuserdatad/
+librdf.ios.xcodeproj/project.xcworkspace/xcshareddata/librdf.ios.xccheckout

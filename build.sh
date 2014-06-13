@@ -22,6 +22,8 @@
 #
 
 #
+# Cross compile 3 C libs. Called from Xcode via env -i
+#
 # Inspired by the process & settings applied by
 # https://github.com/p2/Redland-ObjC/blob/bf123466ae308018b189c05ea39b6b877a083a54/Redland-source/cross-compile.py
 #
@@ -75,7 +77,6 @@ which xargs       >/dev/null 2>&1 || { echo "xargs is not installed." && exit 1;
 which tar         >/dev/null 2>&1 || { echo "tar is not installed." && exit 1; }
 which make        >/dev/null 2>&1 || { echo "make is not installed - I guess Xcode commandline tools are missing." && exit 1; }
 which lipo        >/dev/null 2>&1 || { echo "lipo is not installed - I guess Xcode commandline tools are missing." && exit 1; }
-
 which pkg-config  >/dev/null 2>&1 || { echo "pkg-config is not installed - consider $ brew install pkg-config" && exit 1; }
 
 
@@ -125,8 +126,8 @@ fi
 ###########################################################
 #### build exactly one
 ###########################################################
-if ([ "$1" = "" ] || [ "$2" = "" ]) || [ "$3" != "" ] ; then
-  echo "I expect either 0 or 2 parameters"
+if [ "$2" = "" ] || [ "$3" != "" ] ; then
+  echo "I expect 2 parameters - platform and lib"
   exit 1
 fi
 platform="$1"
@@ -147,9 +148,27 @@ fi
 ###########################################################
 #### configure
 ###########################################################
-build_dir="$(pwd)/$build_base_dir/$platform"
-mkdir -p "$build_dir" 2>/dev/null
+
+case "$lib" in
+$RAPTOR)
+	archive=libraptor2.a
+	;;
+$RASQAL)
+	archive=librasqal.a
+	;;
+$REDLAND)
+	archive=librdf.a
+	;;
+*)
+	echo "ERROR: unknown lib: $lib" 1>&2
+	exit 1
+	;;
+esac
+
+export PREFIX="$(pwd)/$build_base_dir/$platform"
+mkdir -p "$PREFIX" 2>/dev/null
 cd "$cwd" ; cd "$sources_base_dir/$platform/$lib"
+
 if [ ! -f "config.log" ] ; then # configure
   echo "$$ $(pwd)/configure ..."
   ARCH="-arch ${platform:4}"
@@ -158,15 +177,14 @@ if [ ! -f "config.log" ] ; then # configure
   Mac-*)
     export MACOSX_DEPLOYMENT_TARGET="10.6"
 
-    export PREFIX=/usr/local
-    PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/lib/pkgconfig"
+    PKG_CONFIG_PATH="/usr/lib/pkgconfig"
     # add siblings' pc
-    PKG_CONFIG_PATH="${build_dir}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+    PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
     export PKG_CONFIG_PATH
-    export CFLAGS="-std=c99 $ARCH -pipe -I$PREFIX/include"
+    export CFLAGS="-std=c99 $ARCH -pipe"
     export CPPFLAGS="$CFLAGS"
     export CXXFLAGS="$CFLAGS"
-    export LDFLAGS="$ARCH -L$PREFIX/lib"
+    export LDFLAGS="$ARCH"
     # force sqlite use without pkg-config lookup
     export SQLITE_CFLAGS="-I${SDKROOT}/usr/include"
     export SQLITE_LIBS="-L${SDKROOT}/usr/lib -lsqlite3"
@@ -174,19 +192,16 @@ if [ ! -f "config.log" ] ; then # configure
     # echo "MAC platform: $platform" 1>&2
     case "$lib" in
     $RAPTOR)
-      archive=libraptor2.a
-      ./configure --prefix="$build_dir" --with-www=none 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" --with-www=none 1> configure.stdout 2> configure.stderr
       ;;
     $RASQAL)
       pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure)" && exit 1; }
-      archive=librasqal.a
-      ./configure --prefix="$build_dir" --with-decimal=none 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" --with-decimal=none 1> configure.stdout 2> configure.stderr
       ;;
     $REDLAND)
       pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure)" && exit 1; }
       pkg-config --exists rasqal        || { echo "$$ rasqal is not installed (needed by ./configure)" && exit 1; }
-      archive=librdf.a
-      ./configure --prefix="$build_dir" --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
       ;;
     *)
       echo "ERROR: unknown lib: $lib" 1>&2
@@ -226,17 +241,15 @@ if [ ! -f "config.log" ] ; then # configure
       exit 1
     fi
 
-    export PREFIX="/usr/local/ios-$SDKVER"
-
-    PKG_CONFIG_PATH="${SDKROOT}/usr/lib/pkgconfig:${DEVROOT}/usr/lib/pkgconfig:${PREFIX}/lib/pkgconfig"
+    PKG_CONFIG_PATH="${SDKROOT}/usr/lib/pkgconfig:${DEVROOT}/usr/lib/pkgconfig"
     # add siblings' pc
-    PKG_CONFIG_PATH="${build_dir}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+    PKG_CONFIG_PATH="${PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
     export PKG_CONFIG_PATH
 
-    export CFLAGS="-std=c99 $ARCH -pipe --sysroot=$SDKROOT -isysroot $SDKROOT -I${SDKROOT}/usr/include -I${DEVROOT}/usr/include -I${PREFIX}/include"
+    export CFLAGS="-std=c99 $ARCH -pipe --sysroot=$SDKROOT -isysroot $SDKROOT -I${SDKROOT}/usr/include -I${DEVROOT}/usr/include"
     export CPPFLAGS="$CFLAGS"
     export CXXFLAGS="$CFLAGS"
-    export LDFLAGS="--sysroot=$SDKROOT -isysroot $SDKROOT -L${SDKROOT}/usr/lib/system -L${SDKROOT}/usr/lib -L${PREFIX}/lib"
+    export LDFLAGS="--sysroot=$SDKROOT -isysroot $SDKROOT -L${SDKROOT}/usr/lib/system -L${SDKROOT}/usr/lib"
 
     # force sqlite use without pkg-config lookup
     export SQLITE_CFLAGS="-I${SDKROOT}/usr/include"
@@ -249,19 +262,16 @@ if [ ! -f "config.log" ] ; then # configure
     common_opts="--build=$HOST_ARCH-apple-darwin$HOST_DARWIN_VER --host=$HOST_ARCH-apple-darwin --enable-static --disable-shared ac_cv_file__dev_zero=no ac_cv_func_setpgrp_void=yes"
     case "$lib" in
     $RAPTOR)
-      archive=libraptor2.a
-      ./configure --prefix="$build_dir" $common_opts --with-www=none 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" $common_opts --with-www=none 1> configure.stdout 2> configure.stderr
       ;;
     $RASQAL)
       pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure)" && exit 1; }
-      archive=librasqal.a
-      ./configure --prefix="$build_dir" $common_opts --with-decimal=none 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" $common_opts --with-decimal=none 1> configure.stdout 2> configure.stderr
       ;;
     $REDLAND)
       pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure)" && exit 1; }
       pkg-config --exists rasqal        || { echo "$$ rasqal is not installed (needed by ./configure)" && exit 1; }
-      archive=librdf.a
-      ./configure --prefix="$build_dir" $common_opts --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" $common_opts --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
       ;;
     *)
       echo "ERROR: unknown lib: $lib" 1>&2
@@ -272,22 +282,6 @@ if [ ! -f "config.log" ] ; then # configure
   *)
     echo "ERROR: unknown platform: $platform" 1>&2
     exit 2
-    ;;
-  esac
-else # configure
-  case "$lib" in
-  $RAPTOR)
-    archive=libraptor2.a
-    ;;
-  $RASQAL)
-    archive=librasqal.a
-    ;;
-  $REDLAND)
-    archive=librdf.a
-    ;;
-  *)
-    echo "ERROR: unknown lib: $lib" 1>&2
-    exit 1
     ;;
   esac
 fi # configure
