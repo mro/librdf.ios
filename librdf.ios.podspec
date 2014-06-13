@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                         
                         from http://librdf.org/
                       DESC
-  s.homepage          = 'http://librdf.org/'
+  s.homepage          = 'http://purl.mro.name/ios/librdf'
   s.license           = 'Human Rights License'
   s.author            = { "Marcus Rohrmoser" => "mrohrmoser@acm.org" }
   s.source            = { :git => "https://github.com/mro/librdf.ios.git", :tag => s.version.to_s }
