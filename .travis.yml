@@ -1,17 +1,20 @@
 # sign in at https://travis-ci.org/#
 #
+# http://docs.travis-ci.com/user/caching/#Arbitrary-directories
+cache:
+  directories:
+  - tarballs
 # https://github.com/travis-ci/travis-ci/issues/2197#issuecomment-41177752
 before_install:
   - brew update
   - brew upgrade xctool
+install:
   - brew install pkg-config
-#install: 
-#  - env -i PATH=/usr/local/bin:/usr/bin:/bin ./build.sh all
 # http://docs.travis-ci.com/user/languages/objective-c/
 language: objective-c
 xcode_sdk:
   - iphonesimulator7.1
-#  - iphonesimulator7.0
-#  - iphonesimulator6.1
+  - iphonesimulator7.0
+  - iphonesimulator6.1
 xcode_project: librdf.ios.xcodeproj
 xcode_scheme: librdf.ios
