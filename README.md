@@ -28,3 +28,13 @@ Marcus Rohrmoser, mrohrmoser@acm.org
 
 librdf.ios is available under the Human Rights license. See the LICENSE file for more info.
 
+## Design Goals
+
+| Quality         | very good | good | normal | irrelevant |
+|-----------------|:---------:|:----:|:------:|:----------:|
+| Functionality   |           |      |    ×   |            |
+| Reliability     |           |      |    ×   |            |
+| Usability       |           |      |    ×   |            |
+| Efficiency      |           |  ×   |        |            |
+| Changeability   |           |  ×   |        |            |
+| Portability     |           |      |    ×   |            |
