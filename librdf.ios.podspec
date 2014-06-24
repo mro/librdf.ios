@@ -36,6 +36,6 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'build/iOS-armv7s/include/**/*.h'
 
-  s.libraries         = 'xml2', 'xslt', 'exslt', 'sqlite3'
+  s.libraries         = 'xml2', 'xslt', 'sqlite3'
   s.requires_arc      = false
 end
