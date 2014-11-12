@@ -13,8 +13,8 @@ install:
 # http://docs.travis-ci.com/user/languages/objective-c/
 language: objective-c
 xcode_sdk:
+  - iphonesimulator8.0
   - iphonesimulator7.1
   - iphonesimulator7.0
-#  - iphonesimulator6.1 tests via XCTest available from iOS 7.0+
 xcode_project: librdf.ios.xcodeproj
 xcode_scheme: librdf.ios
