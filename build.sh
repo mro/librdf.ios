@@ -28,7 +28,7 @@
 # https://github.com/p2/Redland-ObjC/blob/bf123466ae308018b189c05ea39b6b877a083a54/Redland-source/cross-compile.py
 #
 
-RAPTOR=raptor2-2.0.14
+RAPTOR=raptor2-2.0.15
 RASQAL=rasqal-0.9.32
 REDLAND=redland-1.0.17
 
