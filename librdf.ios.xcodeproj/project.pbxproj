@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		164348931A136E1800AC5E1F /* UNIX2003.c in Sources */ = {isa = PBXBuildFile; fileRef = 164348921A136E1800AC5E1F /* UNIX2003.c */; };
 		1658E26D194A060100F59FD7 /* libxslt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1658E26C194A060100F59FD7 /* libxslt.dylib */; };
 		1658E26F194A068B00F59FD7 /* libexslt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1658E26E194A068B00F59FD7 /* libexslt.dylib */; };
 		16B2AD2D19420F38000FBC34 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2AD2C19420F38000FBC34 /* XCTest.framework */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		164348921A136E1800AC5E1F /* UNIX2003.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = UNIX2003.c; sourceTree = "<group>"; };
 		1658E26C194A060100F59FD7 /* libxslt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxslt.dylib; path = usr/lib/libxslt.dylib; sourceTree = SDKROOT; };
 		1658E26E194A068B00F59FD7 /* libexslt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexslt.dylib; path = usr/lib/libexslt.dylib; sourceTree = SDKROOT; };
 		1675FF741949D2D800175808 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		16B2AD3419420F38000FBC34 /* librdf.iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				164348921A136E1800AC5E1F /* UNIX2003.c */,
 				16B2AD3A19420F38000FBC34 /* librdf_iosTests.m */,
 				16B2AD3519420F38000FBC34 /* Supporting Files */,
 			);
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164348931A136E1800AC5E1F /* UNIX2003.c in Sources */,
 				16B2AD3B19420F38000FBC34 /* librdf_iosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
