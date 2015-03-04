@@ -29,7 +29,7 @@
 #
 
 RAPTOR=raptor2-2.0.15
-RASQAL=rasqal-0.9.32
+RASQAL=rasqal-0.9.33
 REDLAND=redland-1.0.17
 
 max_cores=8
