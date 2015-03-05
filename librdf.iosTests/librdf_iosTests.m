@@ -3,7 +3,7 @@
 // librdf.iosTests
 //
 // Created by Marcus Rohrmoser on 06.06.14.
-// Copyright (c) 2014 Marcus Rohrmoser mobile Software. All rights reserved.
+// Copyright (c) 2014-2015 Marcus Rohrmoser mobile Software. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
