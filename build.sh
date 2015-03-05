@@ -272,7 +272,7 @@ if [ ! -f "config.log" ] ; then # configure
     $REDLAND)
       pkg-config --exists raptor2       || { echo "$$ raptor2 is not installed (needed by ./configure)" && exit 1; }
       pkg-config --exists rasqal        || { echo "$$ rasqal is not installed (needed by ./configure)" && exit 1; }
-      ./configure --prefix="$PREFIX" $common_opts --disable-modular --with-sqlite=yes --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
+      ./configure --prefix="$PREFIX" $common_opts --disable-modular --with-sqlite=yes --without-bdb --without-mysql --without-postgresql --without-virtuoso --without-bdb 1> configure.stdout 2> configure.stderr
       ;;
     *)
       echo "ERROR: unknown lib: $lib" 1>&2
