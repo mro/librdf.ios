@@ -13,8 +13,8 @@ install:
 # http://docs.travis-ci.com/user/languages/objective-c/
 language: objective-c
 xcode_sdk:
-  - iphoneos
-  - iphoneos8.1
+#  - iphoneos         CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
+#  - iphoneos8.1      CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
   - iphonesimulator8.1
   - iphonesimulator7.1
   - iphonesimulator7.0
