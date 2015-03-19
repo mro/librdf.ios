@@ -22,7 +22,7 @@ The install will take a few minutes because it fetches 3 tarballs and builds 3 l
 
 ## Author
 
-Marcus Rohrmoser, mrohrmoser@acm.org
+http://mro.name/me
 
 ## License
 
