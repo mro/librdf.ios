@@ -5,9 +5,9 @@ cache:
   directories:
   - tarballs
 # https://github.com/travis-ci/travis-ci/issues/2197#issuecomment-41177752
-before_install:
-  - brew update
-  - brew upgrade xctool
+# before_install:
+#   - brew update
+#  - brew upgrade xctool
 install:
   - brew install pkg-config
 # http://docs.travis-ci.com/user/languages/objective-c/
@@ -15,8 +15,6 @@ language: objective-c
 xcode_sdk:
 #  - iphoneos         CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
 #  - iphoneos8.1      CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
-  - iphonesimulator8.1
-  - iphonesimulator7.1
-  - iphonesimulator7.0
+  - iphonesimulator
 xcode_project: librdf.ios.xcodeproj
 xcode_scheme: librdf.ios
