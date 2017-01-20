@@ -4,6 +4,8 @@
 cache:
   directories:
   - tarballs
+branches:
+  only: [master, develop]
 # https://github.com/travis-ci/travis-ci/issues/2197#issuecomment-41177752
 # before_install:
 #   - brew update
