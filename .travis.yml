@@ -8,15 +8,26 @@ branches:
   only: [master, develop]
 # https://github.com/travis-ci/travis-ci/issues/2197#issuecomment-41177752
 # before_install:
-#   - brew update
+# - brew update
 #  - brew upgrade xctool
-install:
-  - brew install pkg-config
 # http://docs.travis-ci.com/user/languages/objective-c/
 language: objective-c
-xcode_sdk:
-#  - iphoneos         CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
-#  - iphoneos8.1      CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
-  - iphonesimulator
-xcode_project: librdf.ios.xcodeproj
-xcode_scheme: librdf.ios
+osx_image:
+- xcode9.4
+- xcode8.3
+# - xcode8
+- xcode7.3
+# xcode_sdk:
+# - iphonesimulator
+# - iphoneos         CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
+# - iphoneos8.1      CodeSign error: code signing is required for product type 'Unit Test Bundle' in SDK 'iOS 8.1'
+# xcode_project: librdf.ios.xcodeproj
+# xcode_scheme: librdf.ios
+install:
+- brew install pkg-config
+script:
+# https://github.com/travis-ci/docs-travis-ci-com/issues/1186#issue-230454223
+- xcodebuild -project librdf.ios.xcodeproj -scheme librdf.ios -sdk iphonesimulator
+#  | xcpretty 
+# https://github.com/travis-ci/travis-ci/issues/6251#issuecomment-235535220
+#- xcodebuild -workspace TravisExample.xcworkspace -scheme librdf.ios -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
